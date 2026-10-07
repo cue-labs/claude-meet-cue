@@ -1,13 +1,16 @@
 package example
 
 // #hookInput defines the base schema of all hook inputs. Per the CUE that
-// appears at https://docs.anthropic.com/en/docs/claude-code/hooks#hook-input
+// appears at https://code.claude.com/docs/en/hooks#hook-input-and-output
 #hookInput: {
 	session_id!:      string
 	transcript_path!: string
 	cwd!:             string
 	permission_mode?: string
 	hook_event_name!: string
+
+	// Claude Code adds new fields over time, so allow them.
+	...
 }
 
 // #toolBase is the base set of fields for a hook tool.
@@ -35,6 +38,7 @@ package example
 		file_path!:  string
 		old_string!: string
 		new_string!: string
+		...
 	}
 	tool_response?: {
 		filePath!:     string
@@ -44,6 +48,7 @@ package example
 		structuredPatch: [...]
 		replaceAll?:   bool
 		userModified?: bool
+		...
 	}
 }
 
