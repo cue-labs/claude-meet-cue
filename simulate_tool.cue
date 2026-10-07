@@ -29,15 +29,18 @@ command: simulate: {
 input: {
 	#dir!:           string
 	session_id:      "31be24c1-812e-4e0c-a23e-df42f48844de"
+	prompt_id:       "6f2c8a41-93d7-4b5e-a0c2-1e8f4d7b9a35"
 	transcript_path: "/home/myitcv/.claude/projects/-home-myitcv-tmp-claude-go-example/31be24c1-812e-4e0c-a23e-df42f48844de.jsonl"
 	cwd:             #dir
 	permission_mode: "default"
 	hook_event_name: "PostToolUse"
 	tool_name:       "Edit"
+	tool_use_id:     "toolu_01QkR7vW3nXc5yPz8LmT2bHd"
 	tool_input: {
 		file_path: path.Join([#dir, ".github/workflows/ci.yml"])
-		old_string: "on:\n  push:\n    branches: [ main ]\n\nsomething: else\n\njobs:"
-		new_string: "on:\n  push:\n    branches: [ main ]\n\njobs:"
+		old_string:  "on:\n  push:\n    branches: [ main ]\n\nsomething: else\n\njobs:"
+		new_string:  "on:\n  push:\n    branches: [ main ]\n\njobs:"
+		replace_all: false
 	}
 	tool_response: {
 		filePath: path.Join([#dir, ".github/workflows/ci.yml"])
